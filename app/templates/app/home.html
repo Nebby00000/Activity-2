@@ -4,26 +4,8 @@
 
 <div class="recipe-container">
     <div class="recipe-page">
-        <h1> Recipe List</h1>
+        <h1> this is home</h1>
     </div>
-    {% for recip in recipe %}
-        <div class="recipe-box">
-            <div class="post-entry">
-                <div class="recipe-title">
-                    <h4><a href="{% url 'recipe_detail' recip.pk %}">{{ recip.title }}</a></h4>
-                </div>
-                <div class="recipe-image">
-                    {% if recip.image %}
-                        <a href="{% url 'recipe_detail' recip.pk %}">
-                            <img src="{{ recip.image.url }}" alt="Post Image" > <!-- Adjusted image styling -->
-                        </a>
-                    {% else %}
-                        <p>No image available</p> <!-- Optional message for posts without images -->
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    {% endfor %}
 </div>
 
 {% endblock content %}

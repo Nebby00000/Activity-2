@@ -6,14 +6,14 @@ from .views import ProfilePageView, AboutPageView, ContactPageView, RecipeListVi
 
 urlpatterns = [
 
-    path('', LoginPageView.as_view(), name='login'),
+    path('login/', LoginPageView.as_view(), name='login'),
     path('register/', RegisterPageView.as_view(), name='register'),
     path('logout/', LogoutPageView.as_view(), name='logout'),
 
     path('home/', ProfilePageView.as_view(), name='home'),
     path('about/', AboutPageView.as_view(), name='about'),
     path('contact/', ContactPageView.as_view(), name='contact'),
-    path('recipe/', RecipeListView.as_view(), name='recipe'),
+    path('', RecipeListView.as_view(), name='recipe'),
     path('recipe/<int:pk>', RecipeDetailView.as_view(), name='recipe_detail'),
     path('recipe/create', RecipeCreateView.as_view(), name='recipe_create'),
     path('recipe/<int:pk>/edit', RecipeUpdateView.as_view(), name='recipe_update'),
