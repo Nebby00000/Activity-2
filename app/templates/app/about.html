@@ -1,5 +1,34 @@
 {% extends 'app/base.html' %}
+{% load static %}
 {% block content %}
-<h1>This is About Page</h1>
-<p>about page</p>
+
+<div class="recipe-container">
+    <div class="recipe-page">
+        <h1> Recipe List</h1>
+    </div>
+    {% for recip in recipe %}
+        <div class="recipe-box">
+            <div class="post-entry">
+                <div class="recipe-title">
+                    <h4><a href="{% url 'recipe_detail' recip.pk %}">{{ recip.title }}</a></h4>
+                </div>
+                <div class="recipe-image">
+                    {% if recip.image %}
+                        <a href="{% url 'recipe_detail' recip.pk %}">
+                            <img src="{{ recip.image.url }}" alt="Post Image" >
+                        </a>
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock content %}
+
+
+
+
+

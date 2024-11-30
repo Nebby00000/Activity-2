@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="recipe-detail">
+    <div class="left-column">
+        <div class="post-actions">
+                <a href="{% url 'recipe_update' recipe.pk %}">+ Edit Blog</a>
+                <a href="{% url 'recipe_delete' recipe.pk %}">- Delete Blog</a>
+        </div>
+         <div class="recipe-detail-image">
+            {% if recipe.image %}
+                <img class="recipe-image-details" src="{{ recipe.image.url }}" alt="Post Image">
+            {% else %}
+                <p>No image available for this recipe.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="right-column">
+          <div class="recipe-box-detail">
+        <div class="title">
+                 <h1>{{ recipe.title }}</h1>
+        </div>
+
+        <div class="description">
+                 <p>
+                     {{ recipes.description }}
+                 </p>
+        </div>
+
+        <div class="instruction">
+            <p>
+                  {{ recipe.instructions }}
+            </p>
+
+        </div>
+        <div class="recipes-creation">
+            <p>
+                  {{ recipe.created_at }}
+            </p>
+
+        </div>
+        <div class="author">
+            <p>
+                   {{ recipe.author }}
+            </p>
+
+        </div>
+        <div class="category">
+            <p>
+                    {{ recipe.category }}
+            </p>
+
+        </div>
+    </div>
+    </div>
+
+</div>
+
+{% endblock content %}

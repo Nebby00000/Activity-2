@@ -1,12 +1,11 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block content %}
-
 <div class="recipe-container">
     <div class="recipe-page">
         <h1> Recipe List</h1>
     </div>
-    {% for recip in recipe %}
+    {% for recip in recipes %}
         <div class="recipe-box">
             <div class="post-entry">
                 <div class="recipe-title">
@@ -15,20 +14,14 @@
                 <div class="recipe-image">
                     {% if recip.image %}
                         <a href="{% url 'recipe_detail' recip.pk %}">
-                            <img src="{{ recip.image.url }}" alt="Post Image" > <!-- Adjusted image styling -->
+                            <img src="{{ recip.image.url }}" alt="Post Image">
                         </a>
                     {% else %}
-                        <p>No image available</p> <!-- Optional message for posts without images -->
+                        <p>No image available</p>
                     {% endif %}
                 </div>
             </div>
         </div>
     {% endfor %}
 </div>
-
 {% endblock content %}
-
-
-
-
-
